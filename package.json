@@ -1,15 +1,26 @@
 {
-  "name": "api-client",
+  "name": "simple-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {},
-  "keywords": [],
+  "description": "LAB: HTTP and REST",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.15.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charmedsatyr-401-advanced-javascript/simple-api.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "superagent": "^4.0.0-beta.5"
-  }
+  "bugs": {
+    "url": "https://github.com/charmedsatyr-401-advanced-javascript/simple-api/issues"
+  },
+  "homepage": "https://github.com/charmedsatyr-401-advanced-javascript/simple-api#readme"
 }
