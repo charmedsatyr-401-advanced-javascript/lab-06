@@ -9,7 +9,7 @@
 * [PR](https://github.com/charmedsatyr-401-advanced-javascript/simple-api/pull/1)
 
 #### Documentation
-* [swagger](docs/openapi.json)
+* [swagger](docs/openapi.json) - Documents a portion of the API but may contain errors.
 
 ### Modules
 N/A
@@ -45,7 +45,7 @@ N/A
 N/A
 * What assertions need to be / should be made?
 
-The Swagger documentation is imperfect.
+N/A
 
 #### UML
 N/A
