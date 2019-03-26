@@ -1,4 +1,39 @@
 {
-  "categories": [],
-  "products": []
+  "categories": [
+    {
+      "name": "electronics",
+      "display_name": "Electronics",
+      "description": "Things you plug in.",
+      "_id": 1
+    },
+    {
+      "name": "fruit",
+      "display_name": "Fruit",
+      "description": "Sweet plant bits you eat.",
+      "_id": 2
+    }
+  ],
+  "products": [
+    {
+      "name": "radio",
+      "display_name": "RadioMAX",
+      "description": "It is too loud.",
+      "category": "electronics",
+      "_id": 1
+    },
+    {
+      "name": "strawberry",
+      "display_name": "Juicy, red strawberry",
+      "description": "It tastes so good!",
+      "category": "fruit",
+      "_id": 2
+    },
+    {
+      "name": "banana",
+      "display_name": "Big Panamanian banana",
+      "description": "It is yellow and curvy.",
+      "category": "food",
+      "_id": 3
+    }
+  ]
 }
