@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080/"
+      "url": "http://localhost:3000/"
     }
   ],
   "paths": {
@@ -15,12 +15,12 @@
       "get": {
         "description": "Get all categories",
         "responses": {
-          "200": {
+          "201": {
             "description": "Returned a list of categories",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/getAll"
+                  "$ref": "#/components/schemas/getAllCategories"
                 }
               }
             }
@@ -28,24 +28,272 @@
         }
       },
       "post": {
+        "description": "Post a new category",
+        "parameters": [
+          {
+            "name": "category object",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/postCategory"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input",
+            "content": {}
+          }
+        }
       }
     },
     "/categories/{id}": {
-      "get": {
-      },
       "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/putCategory"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated category with a given id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/putCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Updated category with a given _id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
+        "description": "delete a category",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The _id of the category that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error 400: Invalid id supplied",
+            "content": {}
+          },
+          "404": {
+            "description": "Error 404: id not found",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "description": "Get all products",
+        "responses": {
+          "200": {
+            "description": "Returned a list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/getAllProducts"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Post a new product",
+        "parameters": [
+          {
+            "name": "product object",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/postProduct"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/putProduct"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated product with a given id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/putProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update a product with a given _id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "delete a product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The _id of the product that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error 400: Invalid id supplied",
+            "content": {}
+          },
+          "404": {
+            "description": "Error 404: id not found",
+            "content": {}
+          }
+        }
       }
     }
   },
   "components": {
     "schemas": {
-      "getAll": {
+      "putCategory": {
+        "type": "object",
+        "example": {
+          "_id": "number",
+          "name": "string",
+          "display_name": "string",
+          "description": "string"
+        }
+      },
+      "postCategory": {
+        "type": "object",
+        "example": {
+          "name": "string",
+          "display_name": "string",
+          "description": "string"
+        }
+      },
+      "putProduct": {
+        "type": "object",
+        "example": {
+          "_id": "number",
+          "name": "string",
+          "display_name": "string",
+          "description": "string",
+          "category": "string"
+        }
+      },
+      "postProduct": {
+        "type": "object",
+        "example": {
+          "name": "string",
+          "display_name": "string",
+          "description": "string",
+          "category": "string"
+        }
+      },
+      "getAllCategories": {
         "type": "object",
         "example": [
-          "{}",
-          "{}"
+          {
+            "_id": "number",
+            "name": "string",
+            "display_name": "string",
+            "description": "string"
+          },
+          {
+            "_id": "number",
+            "name": "string",
+            "display_name": "string",
+            "description": "string"
+          }
+        ]
+      },
+      "getAllProducts": {
+        "type": "object",
+        "example": [
+          {
+            "_id": "number",
+            "name": "string",
+            "display_name": "string",
+            "description": "string",
+            "category": "string"
+          },
+          {
+            "_id": "number",
+            "name": "string",
+            "display_name": "string",
+            "description": "string",
+            "category": "string"
+          }
         ]
       }
     }

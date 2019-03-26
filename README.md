@@ -7,9 +7,10 @@
 
 ### Links and Resources
 * [PR](https://github.com/charmedsatyr-401-advanced-javascript/simple-api/pull/1)
+* [front end](https://codesandbox.io/s/j29j15x2q9)
 
 #### Documentation
-* [swagger](docs/openapi.json) - Documents a portion of the API but may contain errors.
+* [swagger](docs/swagger.json)
 
 ### Modules
 N/A
@@ -17,7 +18,7 @@ N/A
 ##### Exported Values and Methods
 `./data/db.json`
 
-###### Commands run to build records in `data/db.json`
+###### Commands run to build records in `./data/db.json`
 `echo '{"name":"electronics", "display_name":"Electronics","description":"Things you plug in."}' | http :3000/categories`
 
 `echo '{"name":"fruit", "display_name":"Fruit","description":"Sweet plant bits you eat."}' | http :3000/categories`
@@ -35,6 +36,7 @@ N/A
 * Categories and their corresponding products should display when a category is clicked:
   * `electronics` -> `radio`
   * `fruit` -> `strawberry`, `banana`
+* If `json-server` is running as indicated, you should be able to make additions or modifications to `./data/db.json` through the `json-server` API or through requests made through the `swagger.io` interface after copying/pasting the documentation at `./docs/swagger.json` into an editor at [https://editor.swagger.io](https://editor.swagger.io).
 
 #### Tests
 * How do you run tests?
