@@ -261,7 +261,7 @@
         }
       },
       "getAllCategories": {
-        "type": "object",
+        "type": "array",
         "example": [
           {
             "_id": "number",
@@ -278,7 +278,7 @@
         ]
       },
       "getAllProducts": {
-        "type": "object",
+        "type": "array",
         "example": [
           {
             "_id": "number",
