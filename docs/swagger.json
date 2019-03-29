@@ -15,7 +15,7 @@
       "get": {
         "description": "Get all categories",
         "responses": {
-          "201": {
+          "200": {
             "description": "Returned a list of categories",
             "content": {
               "*/*": {
