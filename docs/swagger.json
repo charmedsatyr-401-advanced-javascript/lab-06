@@ -15,12 +15,12 @@
       "get": {
         "description": "Get all categories",
         "responses": {
-          "201": {
+          "200": {
             "description": "Returned a list of categories",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/getAllCategories"
+                  "$ref": "#/components/schemas/CategoriesList"
                 }
               }
             }
@@ -35,7 +35,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/postCategory"
+              "$ref": "#/components/schemas/Category"
             }
           }
         ],
@@ -43,7 +43,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/postCategory"
+                "$ref": "#/components/schemas/Category"
               }
             }
           }
@@ -64,7 +64,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/putCategory"
+              "$ref": "#/components/schemas/Category"
             }
           }
         ],
@@ -73,7 +73,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/putCategory"
+                "$ref": "#/components/schemas/Category"
               }
             }
           }
@@ -125,7 +125,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/getAllProducts"
+                  "$ref": "#/components/schemas/ProductsList"
                 }
               }
             }
@@ -140,7 +140,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/postProduct"
+              "$ref": "#/components/schemas/Product"
             }
           }
         ],
@@ -148,7 +148,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/postProduct"
+                "$ref": "#/components/schemas/Product"
               }
             }
           }
@@ -169,7 +169,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/putProduct"
+              "$ref": "#/components/schemas/Product"
             }
           }
         ],
@@ -178,7 +178,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/putProduct"
+                "$ref": "#/components/schemas/Product"
               }
             }
           }
@@ -204,12 +204,22 @@
             "in": "path",
             "description": "The _id of the product that needs to be deleted",
             "required": true,
-            "schema": {
-              "type": "string"
+            "schema": { 
+              "$ref": "#/components/schemas/Delete"
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Deleted one category",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Error 400: Invalid id supplied",
             "content": {}
@@ -224,16 +234,11 @@
   },
   "components": {
     "schemas": {
-      "putCategory": {
+      "Delete": {
         "type": "object",
-        "example": {
-          "_id": "number",
-          "name": "string",
-          "display_name": "string",
-          "description": "string"
-        }
+        "example": {}
       },
-      "postCategory": {
+      "Category": {
         "type": "object",
         "example": {
           "name": "string",
@@ -241,7 +246,7 @@
           "description": "string"
         }
       },
-      "putProduct": {
+      "Product": {
         "type": "object",
         "example": {
           "_id": "number",
@@ -251,16 +256,7 @@
           "category": "string"
         }
       },
-      "postProduct": {
-        "type": "object",
-        "example": {
-          "name": "string",
-          "display_name": "string",
-          "description": "string",
-          "category": "string"
-        }
-      },
-      "getAllCategories": {
+      "CategoriesList": {
         "type": "array",
         "example": [
           {
@@ -277,7 +273,7 @@
           }
         ]
       },
-      "getAllProducts": {
+      "ProductsList": {
         "type": "array",
         "example": [
           {
