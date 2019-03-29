@@ -39,6 +39,8 @@ N/A
 
 `http delete :3000/categories/ID`
 
+It may be necessary to GET an object from the database to ascertain its `_id`.
+
 #### Running the app
 * `json-server --watch data/db.json --id=_id`
 * Ensure `json-server` is running on port 3000.
