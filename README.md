@@ -6,7 +6,7 @@
 ### Author: Joseph Wolfe
 
 ### Links and Resources
-* [PR](https://github.com/charmedsatyr-401-advanced-javascript/simple-api/pull/1)
+* [PR](https://github.com/charmedsatyr-401-advanced-javascript/simple-api/pull/2)
 * [front end](https://codesandbox.io/s/j29j15x2q9)
 
 #### Documentation
